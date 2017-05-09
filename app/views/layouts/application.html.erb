@@ -6,9 +6,27 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Custom Fonts moved to 'layouts/partial' -->
+    <%= render 'layouts/custom_fonts' %>
+
+    <!-- Move Shim to 'layouts/partial' -->
+    <%= render 'layouts/shim' %>
   </head>
 
   <body>
+    <%= render 'layouts/navigation' %>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
     <%= yield %>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
