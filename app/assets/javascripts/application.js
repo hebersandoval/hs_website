@@ -12,5 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.easing
+//= require parallax
+//= require jquery.parallax
 //= require turbolinks
+//= require bootstrap
 //= require_tree .
