@@ -1,14 +1,16 @@
 <div class="col-md-3">
   <div class="sidebar-widget">
     <div class="blog-search">
-        <form>
-            <input type="text" name="search" placeholder="Search for a post entry...">
+
+        <%= form_tag(posts_path, :method => "get", id: "search-form") do %>
+          <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search for a post entry..." %>
             <span>
-              <button id="submit_btn" class="search-submit" type="submit">
+              <button type="submit" id="submit_btn" class="search-submit">
                 <i class="fa fa-search"></i>
-                </button>
+              </button>
             </span>
-        </form>
+        <% end %>
+
     </div>
   </div>
   <div class="sidebar-widget">

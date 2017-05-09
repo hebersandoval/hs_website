@@ -20,6 +20,10 @@
 
 					<% if @posts.present? %>
 						<%= render 'post' %>
+					<% else %>
+						<div class="alert alert-danger" role="alert">
+				      <p style="color:red";><em>There are no posts containing the term(s): <strong><%= params[:search] %>.</strong></em></p>
+						</div>
 					<% end %>
 
 					<ul class="pagination">
