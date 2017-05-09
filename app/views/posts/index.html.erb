@@ -1,0 +1,39 @@
+<!-- PAGE HEADER -->
+	<section id="page-header">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="section-title">
+						<h1>Blog</h1>
+						<span class="st-border"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section><!-- /PAGE HEADER -->
+
+	<!-- BLOG -->
+	<section id="blog">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-9">
+
+					<% if @posts.present? %>
+						<%= render 'post' %>
+					<% end %>
+
+					<ul class="pagination">
+						<li><a href="#"><i class="fa fa-angle-left"></i></a></li>
+						<li class="active"><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+					</ul>
+				</div>
+
+				<%= render 'shared/sidebar' %>
+
+			</div>
+		</div>
+	</section>

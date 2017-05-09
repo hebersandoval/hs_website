@@ -1,0 +1,22 @@
+<% @posts.each do |post| %>
+
+  <div class="single-blog">
+    <article>
+      <div class="post-thumb">
+        <%= image_tag("blog/01.jpg", class: "img-responsive", alt: "") %>
+      </div>
+      <h4 class="post-title"><a href=""><%= post.title %></a></h4>
+      <div class="post-meta text-uppercase">
+        <span><%= post.created_at.strftime("%B %d, %Y") %></span>
+        <span>In <a href="">Design</a></span>
+        <span>By <a href=""><%= post.user.email %></a></span>
+      </div>
+      <div class="post-article">
+        <%= truncate post.content, length: 200 %>
+      </div>
+      <%= link_to "Read More", post_path(post), class: "btn btn-readmore" %>
+    </article>
+  </div>
+  <hr>
+
+<% end %>
