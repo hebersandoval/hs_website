@@ -44,6 +44,7 @@
  	14. BLOG
  	15. FOOTER
  	16. SCROLL TO TOP
+  17. FORMS
 
  */
 
@@ -1102,3 +1103,20 @@
  		background-color: #f5f5f5;
  		color: #000;
  	}
+
+// 17. FORMS
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}

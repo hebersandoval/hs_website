@@ -31,6 +31,8 @@
                   <p>Name: <%= @user.name if @user.name %></p>
                   <p>Email: <%= @user.email if @user.email %></p>
 
+									<%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-readmore" %>
+
                 </div>
               </div>
             </div>

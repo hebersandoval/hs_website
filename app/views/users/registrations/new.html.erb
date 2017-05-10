@@ -30,11 +30,12 @@
 
                   <!-- Devise form -->
                   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-                    <%= devise_error_messages! %>
+                    <!-- <%= devise_error_messages! %> -->
+										<%= render 'shared/error_messages', object: f.object %>
 
                     <div class="field">
                       <%= f.label :name %><br />
-                      <%= f.email_field :name, autofocus: true %>
+                      <%= f.text_field :name, autofocus: true %>
                     </div>
 
                     <div class="field">
@@ -56,7 +57,7 @@
                     </div>
 
                     <div class="actions">
-                      <%= f.submit "Sign up" %>
+                      <%= f.submit "Sign up", class: "btn btn-readmore" %>
                     </div>
                   <% end %>
 
