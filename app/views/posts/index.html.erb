@@ -14,6 +14,15 @@
 		</div>
 	</section><!-- /PAGE HEADER -->
 
+	<% if user_signed_in? %>
+		<% if current_user.try(:admin?) %>
+			<%= link_to new_post_path, class: "btn btn-default" do %>
+				<i class="glyphicon glyphicon-plus"></i>
+			<% end %>
+		<% end %>
+	<% end %>
+
+
 	<!-- BLOG -->
 	<section id="blog">
 		<div class="container">
