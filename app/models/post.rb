@@ -4,6 +4,7 @@ class Post < ApplicationRecord
   validates :user_id, presence: true
 
   belongs_to :user
+  has_many :post_categories
   has_many :categories, through: :post_categories
 
   def self.search(search)
