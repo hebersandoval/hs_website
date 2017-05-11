@@ -25,10 +25,14 @@ gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+# Use for making ajax calls
+gem 'active_model_serializers'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'jquery-easing-rails'
-gem 'parallax-rails'
+# Need to research this gem to see how it works with rails
+# gem 'parallax-rails'
 
 # gem 'masonry-rails'
 

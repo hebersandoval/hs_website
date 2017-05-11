@@ -37,7 +37,7 @@
 				          <% end %>
 				        <% end %>
 
-								<span><%= @post.created_at.strftime("%B %d, %Y") %></span>
+								<span class="post-created"><%= @post.created_at.strftime("%B %d, %Y") %></span>
 								<span>In <a href="">Design</a></span>
 								<span>By <a href=""><%= @post.user.email %></a></span>
 							</div>
@@ -48,13 +48,9 @@
 						</article>
 					</div>
 					<hr>
-					<ul class="pagination">
-						<li><a href="#"><i class="fa fa-angle-left"></i></a></li>
-						<li class="active"><a href="#">1</a></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">3</a></li>
-						<li><a href="#">4</a></li>
-						<li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+					<ul class="pager">
+						<li class="previous"><a href="#" class="js-prev" data-id="<%= @post.id %>">&larr; Prev</a>
+						<li class="next"><a href="#" class="js-next" data-id="<%= @post.id %>">Next &rarr;</a>
 					</ul>
 				</div>
 
