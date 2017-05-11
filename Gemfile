@@ -27,6 +27,8 @@ gem 'coffee-rails', '~> 4.2'
 
 # Use for making ajax calls
 gem 'active_model_serializers'
+# For pagination
+gem 'kaminari'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
