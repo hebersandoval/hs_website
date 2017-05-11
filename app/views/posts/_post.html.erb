@@ -14,12 +14,13 @@
           <span>In <a href=""><%= category.name %></a></span>
         <% end %>
 
-        <!-- <span>In <a href="">Design</a></span> -->
         <span>By <a href=""><%= post.user.email %></a></span>
       </div>
+
+      <!-- Post content -->
       <div id="content-<%= post.id %>" class="post-article">
         <%= truncate post.content, length: 220 %>
-        <button class="js-more" data-id="<%= post.id %>">More...</button>
+        <button class="js-more btn btn-xs" data-id="<%= post.id %>">More</button>
       </div>
       <%= link_to "Read More", post_path(post), class: "btn btn-readmore" %>
     </article>
