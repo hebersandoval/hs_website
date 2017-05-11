@@ -19,6 +19,11 @@ class PostsController < ApplicationController
     end
   end
 
+  def content
+    post = Post.find(params[:id])
+    render plain: post.content
+  end
+
   def new
     @post = current_user.posts.build
   end

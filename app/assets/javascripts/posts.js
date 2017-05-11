@@ -1,7 +1,3 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
-// You can use CoffeeScript in this file: http://coffeescript.org/
-
 // Get the next post on the show page
 $(function() {
   $(".js-next").on("click", function(e) {
@@ -26,7 +22,6 @@ $(function() {
     var nextId = parseInt($(".js-next").attr("data-id")) - 1;
     $.get("/posts/" + nextId + ".json", function(data) {
       // get post
-      console.log(data)
       var post = data;
       $(".post-title").text(post["title"]);
       $(".post-article").text(post["content"]);
@@ -35,5 +30,16 @@ $(function() {
       $(".js-next").attr("data-id", post["id"]);
     });
     e.preventDefault();
+  });
+});
+
+// Display the rest of truncated post without full page refresh
+$(function() {
+  $(".js-more").on("click", function() {
+    var id = $(this).data("id");
+    $.get("/posts/" + id + ".json", function(data) {
+      var contentText = "<p>" + data.content + "</p>";
+      $("#content-" + id).html(contentText);
+    });
   });
 });

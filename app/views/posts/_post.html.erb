@@ -11,8 +11,9 @@
         <span>In <a href="">Design</a></span>
         <span>By <a href=""><%= post.user.email %></a></span>
       </div>
-      <div class="post-article">
+      <div id="content-<%= post.id %>" class="post-article">
         <%= truncate post.content, length: 200 %>
+        <button class="js-more" data-id="<%= post.id %>">More...</button>
       </div>
       <%= link_to "Read More", post_path(post), class: "btn btn-readmore" %>
     </article>

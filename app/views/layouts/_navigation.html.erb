@@ -37,6 +37,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><%= link_to "Contact", "#{root_path}#contact" %></li>
+                <li role="separator" class="divider"></li>
                 <li><a href="#">Something else here</a></li>
                 <% if !user_signed_in? %>
                   <li><%= link_to 'Sign in', new_user_session_path %></li>
@@ -49,6 +50,13 @@
                     <li><%= link_to 'Users', users_path %></li>
                   <% end %>
                 <% end %>
+
+                <% if user_signed_in? %>
+              		<% if current_user.try(:admin?) %>
+                    <li role="separator" class="divider"></li>
+              			<li><%= link_to "New Post", new_post_path %></li>
+              		<% end %>
+              	<% end %>
 
                 <% if user_signed_in? %>
                   <li role="separator" class="divider"></li>
