@@ -3,8 +3,6 @@ class Post < ApplicationRecord
   validates :content, presence: true
   validates :user_id, presence: true
 
-  attr_accessor :new_category_name
-
   belongs_to :user
   has_many :post_categories
   has_many :categories, through: :post_categories

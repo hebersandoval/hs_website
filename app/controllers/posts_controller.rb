@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :admin_only, except: [:index, :show]
+  before_action :set_category, only: [:index, :show, :new, :edit]
 
   def index
     @posts = Post.all
@@ -26,10 +27,17 @@ class PostsController < ApplicationController
 
   def new
     @post = current_user.posts.build
+    if params[:category_id]
+      @category = Category.find(params[:category_id])
+    end
   end
 
   def create
     @post = current_user.posts.build(post_params)
+    if params[:category_id]
+      @category = Category.find(params[:category_id])
+      @post.categories << @category
+    end
     if @post.save
       flash[:success] = "Your post was successfully created!"
       redirect_to post_path(@post)
@@ -40,6 +48,7 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    @post.categories.build
   end
 
   def update
@@ -61,7 +70,11 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :user_id)
+    params.require(:post).permit(:title, :content, :user_id, category_ids: [])
+  end
+
+  def set_category
+    @categories = Category.all
   end
 
   def admin_only

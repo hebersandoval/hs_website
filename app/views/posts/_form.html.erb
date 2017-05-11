@@ -9,8 +9,9 @@
 
     <div class="form-group col-lg-4">
       <label for="post_category_id">Category:</label>
-      <%= f.collection_select :category_ids, Category.all, :id, :name, prompt: "Select a category" %>
-      <%= f.text_field :new_category_name %>
+
+      <%# f.collection_select :category_ids, Category.all, :id, :name %>
+      <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
     </div>
 
     <div class="clearfix"></div>
