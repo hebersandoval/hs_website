@@ -54,11 +54,9 @@
 					</div>
 					<hr>
 					<ul class="pager">
-						<li class="previous"><a href="#" class="js-prev" data-id="<%= @post.id %>">&larr; Prev</a></li>
+						<li class="previous"><%= link_to raw("&larr; Prev"), "", class: "js-prev", "data-id": @post.id %></li>
 
-						<li class=""><%= link_to "Back", posts_path %></li>
-
-						<!-- <li class="next"><a href="#" class="js-next" data-id="<%= @post.id %>">Next &rarr;</a></li> -->
+						<li><%= link_to "Back", posts_path %></li>
 
 						<li class="next"><%= link_to raw("Next &rarr;"), "", class: "js-next", "data-id": @post.id %></li>
 					</ul>
