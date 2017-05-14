@@ -58,7 +58,9 @@
 
 						<li class=""><%= link_to "Back", posts_path %></li>
 
-						<li class="next"><a href="#" class="js-next" data-id="<%= @post.id %>">Next &rarr;</a></li>
+						<!-- <li class="next"><a href="#" class="js-next" data-id="<%= @post.id %>">Next &rarr;</a></li> -->
+
+						<li class="next"><%= link_to raw("Next &rarr;"), "", class: "js-next", "data-id": @post.id %></li>
 					</ul>
 				</div>
 
