@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :admin_only, :except => :show
+  before_action :set_category, only: [:index, :show, :new, :edit]
 
   def index
     @users = User.all
@@ -40,5 +41,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :role)
+  end
+
+  def set_category
+    @categories = Category.all
   end
 end
