@@ -15,4 +15,5 @@
 //= require jquery.easing
 //= require turbolinks
 //= require bootstrap
+//= require handlebars.min-v4.0.8
 //= require_tree .

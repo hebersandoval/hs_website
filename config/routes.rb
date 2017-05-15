@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root 'pages#home'
+  get 'portfolio', to: 'projects#index'
+  get 'blog', to: 'posts#index'
 
   devise_for :users
   resources :users
