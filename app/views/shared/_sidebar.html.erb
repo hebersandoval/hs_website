@@ -17,7 +17,20 @@
     <ul>
       <!-- Show all categories here -->
       <% @categories.each do |category| %>
-        <li><%= category.name %> (<%= category.id %>)</li>
+        <li>
+          <%= category.name %> (<%= category.id %>)
+          <!-- Edit/Delete admin only -->
+          <% if current_user.try(:admin?) %>
+            <%= link_to edit_category_path(category), class: "btn btn-default btn-xs" do %>
+              <i class="glyphicon glyphicon-pencil"></i>
+            <% end %>
+
+            <%= link_to category, class: "btn btn-danger btn-xs", method: :delete, data: { confirm: "You sure?" } do %>
+              <i class="glyphicon glyphicon-trash"></i>
+            <% end %>
+          <% end %>
+        </li>
+
       <% end %>
     </ul>
   </div>
