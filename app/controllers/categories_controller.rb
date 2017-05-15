@@ -1,4 +1,7 @@
 class CategoriesController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
+  before_action :admin_only, except:[:index]
+
   def index
     @categories = Category.all
   end
@@ -41,5 +44,11 @@ class CategoriesController < ApplicationController
 
   def category_params
     params.require(:category).permit(:name)
+  end
+
+  def admin_only
+    unless current_user.admin?
+      redirect_to root_path, :alert => "Access denied."
+    end
   end
 end
