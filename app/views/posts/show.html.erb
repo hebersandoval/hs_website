@@ -60,6 +60,43 @@
 
 						<li class="next"><%= link_to raw("Next &rarr;"), "", class: "js-next", "data-id": @post.id %></li>
 					</ul>
+					<hr>
+
+					<!-- COMMENT FORM -->
+					<div class="row">
+						<div class="box">
+							<div class="col-lg-12">
+
+								<!-- <h4 class="post-title text-center">Your comment here.</h4> -->
+
+								<%= form_for([@post, @comment]) do |f| %>
+									<%= render 'shared/error_messages', object: f.object %>
+									<%= f.text_area :content, class: "form-control", rows: "4", placeholder: "Enter your comment here..." %> <br>
+									<%= f.submit class: "form-control" %>
+								<% end %>
+
+							<!-- <h3 class="post-title text-center">Comennts</h3> -->
+							<% @post.comments.each do |comment| %>
+								<!-- Left-aligned media object -->
+								<div class="media">
+									<div class="media-left">
+										<%= image_tag("https://unsplash.it/50", size: "50x50") %>
+									</div>
+									<div class="media-body">
+									<% if user_signed_in? %>
+										<h4 class="intro-text"><%= current_user.name %></h4>
+									<% end %>
+
+										<p class="postContent"><%= comment.content %></p>
+									</div>
+								</div>
+								<hr>
+								<% end %>
+
+							</div>
+						</div>
+					</div>
+
 				</div>
 
 				<%= render 'shared/sidebar' %>
