@@ -2,6 +2,7 @@
 $(function() {
   $(".js-next").on("click", function(e) {
     var nextId = parseInt($(".js-next").attr("data-id")) + 1;
+    history.pushState(null, null, "" + nextId)
     $.get("/posts/" + nextId + ".json", function(data) {
       // get post
       console.log(data)
@@ -19,8 +20,9 @@ $(function() {
 // Get the previous post on the show page
 $(function() {
   $(".js-prev").on("click", function(e) {
-    var nextId = parseInt($(".js-next").attr("data-id")) - 1;
-    $.get("/posts/" + nextId + ".json", function(data) {
+    var prevId = parseInt($(".js-next").attr("data-id")) - 1;
+    history.pushState(null, null, "" + prevId)
+    $.get("/posts/" + prevId + ".json", function(data) {
       // get post
       var post = data;
       $(".post-title").text(post["title"]);
