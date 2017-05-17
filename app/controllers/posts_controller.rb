@@ -10,6 +10,10 @@ class PostsController < ApplicationController
     else
       @posts = Post.all.order('created_at DESC')
     end
+    respond_to do |format|
+      format.html { render :index}
+      format.json { render json: @posts }
+    end
   end
 
   def show
