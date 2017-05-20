@@ -68,6 +68,15 @@
         					</div>
                   <!-- Portfolio items -->
 
+                  <hr>
+        					<ul class="pager">
+        						<li class="previous"><%= link_to raw("&larr; Prev"), "", class: "js-prev", "data-id": @project.id %></li>
+
+        						<li><%= link_to "Back", projects_path %></li>
+
+        						<li class="next"><%= link_to raw("Next &rarr;"), "", class: "js-next", "data-id": @project.id %></li>
+        					</ul>
+
                 </div>
               </div>
             </div>
