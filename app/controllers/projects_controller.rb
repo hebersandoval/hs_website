@@ -4,6 +4,7 @@ class ProjectsController < ApplicationController
   before_action :set_tag, only: [:index, :show, :new, :edit]
 
   def index
+    @projects = Project.all
   end
 
   def show
