@@ -1,0 +1,33 @@
+<div class="portfolio-wrapper" >
+  <!-- Tag heading -->
+  <div class="col-md-12">
+    <ul class="filter">
+      <li><a class="active" href="#" data-filter="*">All</a></li>
+      <% @projects.each do |project| %>
+        <% project.tags.each do |tag| %>
+          <li><a href="#" data-filter=".wordpress"><%= tag.name %></a></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="portfolio-items">
+    <% @projects.each do |project| %>
+
+    <div class="col-md-4 col-sm-6 work-grid wordpress graphic">
+      <div class="portfolio-content">
+        <%= image_tag("works/portfolio-1.jpg", class: "img-responsive", alt: "") %>
+        <div class="portfolio-overlay">
+          <%= link_to project_path(project) do %>
+            <i class="fa fa-camera-retro"></i>
+          <% end %>
+          <h5><%= project.title %></h5>
+          <p><%= project.description %></p>
+        </div>
+      </div>
+    </div>
+
+    <% end %>
+  </div>
+</div>
+<!-- portfolio-wrapper -->
