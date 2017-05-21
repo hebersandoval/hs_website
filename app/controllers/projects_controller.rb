@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :admin_only, except: [:index, :show]
+  before_action :set_tag, only: [:index, :show, :new, :edit]
 
   def index
   end
@@ -53,6 +54,10 @@ class ProjectsController < ApplicationController
 
   def project_params
     params.require(:project).permit(:title, :description, tag_ids: [])
+  end
+
+  def set_tag
+    @tags = Tag.all
   end
 
   def admin_only
