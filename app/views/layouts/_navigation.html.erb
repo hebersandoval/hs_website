@@ -56,6 +56,8 @@
               		<% if current_user.try(:admin?) %>
                     <li role="separator" class="divider"></li>
               			<li><%= link_to "New Post", new_post_path %></li>
+                    <li role="separator" class="divider"></li>
+              			<li><%= link_to "Add Project", new_project_path %></li>
               		<% end %>
               	<% end %>
 
