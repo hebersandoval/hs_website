@@ -25,6 +25,11 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def edit
+    @project = Project.find(params[:id])
+    @project.tags.build
+  end
+
   private
 
   def project_params
