@@ -49,6 +49,18 @@
         							</div>
         							<h4 class="post-title"><a href=""><%= @project.title %></a></h4>
         							<div class="post-meta text-uppercase">
+
+												<!-- Edit and delete buttons -->
+												<% if current_user.try(:admin?) %>
+													<%= link_to edit_project_path(@project), class: "btn btn-default btn-xs" do %>
+														<i class="glyphicon glyphicon-pencil"></i>
+													<% end %>
+
+												<%= link_to @project, class: "btn btn-danger btn-xs", method: :delete, data: { confirm: "You sure?" } do %>
+													<i class="glyphicon glyphicon-trash"></i>
+													<% end %>
+												<% end %>
+
         								<span><%= @project.created_at.strftime("%B %d, %Y") %></span>
 
                         <!-- Post categories -->
