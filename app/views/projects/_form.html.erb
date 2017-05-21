@@ -11,7 +11,10 @@
       <label for="project_tag_id">Tags:</label>
 
       <%# f.collection_select :tag_ids, Tag.all, :id, :name %>
-      <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %>
+      <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name do |bx| %>
+        <%= bx.check_box %>
+        <%= bx.label %>
+      <% end %>
     </div>
 
     <div class="clearfix"></div>
