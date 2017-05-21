@@ -1,4 +1,7 @@
 class ProjectsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :admin_only, except: [:index, :show]
+
   def index
   end
 
@@ -50,5 +53,11 @@ class ProjectsController < ApplicationController
 
   def project_params
     params.require(:project).permit(:title, :description, tag_ids: [])
+  end
+
+  def admin_only
+    unless current_user.admin?
+      redirect_to root_path, alert: "Access denied!"
+    end
   end
 end
