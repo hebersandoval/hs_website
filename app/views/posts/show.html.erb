@@ -29,11 +29,11 @@
 
 								<% if current_user.try(:admin?) %>
 									<%= link_to edit_post_path(@post), class: "btn btn-default btn-xs" do %>
-										<i class="glyphicon glyphicon-pencil"></i>
+										<i class="fa fa-pencil" aria-hidden="true"></i>
 									<% end %>
 
 				          <%= link_to @post, class: "btn btn-danger btn-xs", method: :delete, data: { confirm: "You sure?" } do %>
-				            <i class="glyphicon glyphicon-trash"></i>
+				            <i class="fa fa-trash-o" aria-hidden="true"></i>
 				          <% end %>
 				        <% end %>
 

@@ -22,11 +22,11 @@
           <!-- Edit/Delete admin only -->
           <% if current_user.try(:admin?) %>
             <%= link_to edit_category_path(category), class: "btn btn-default btn-xs" do %>
-              <i class="glyphicon glyphicon-pencil"></i>
+              <i class="fa fa-pencil" aria-hidden="true"></i>
             <% end %>
 
             <%= link_to category, class: "btn btn-danger btn-xs", method: :delete, data: { confirm: "You sure?" } do %>
-              <i class="glyphicon glyphicon-trash"></i>
+              <i class="fa fa-trash-o" aria-hidden="true"></i>
             <% end %>
           <% end %>
         </li>

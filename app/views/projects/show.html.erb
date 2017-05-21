@@ -53,11 +53,11 @@
 												<!-- Edit and delete buttons -->
 												<% if current_user.try(:admin?) %>
 													<%= link_to edit_project_path(@project), class: "btn btn-default btn-xs" do %>
-														<i class="glyphicon glyphicon-pencil"></i>
+														<i class="fa fa-pencil" aria-hidden="true"></i>
 													<% end %>
 
 												<%= link_to @project, class: "btn btn-danger btn-xs", method: :delete, data: { confirm: "You sure?" } do %>
-													<i class="glyphicon glyphicon-trash"></i>
+													<i class="fa fa-trash-o" aria-hidden="true"></i>
 													<% end %>
 												<% end %>
 
@@ -112,7 +112,7 @@
         </div>
 
 				<%= render 'tags' %>
-				
+
       </div>
 
     </div>
