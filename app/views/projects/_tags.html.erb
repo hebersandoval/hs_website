@@ -1,21 +1,13 @@
-<div class="sidebar-widget">
-  <h4 class="sidebar-title">Tags</h4>
-  <div class="tagcloud">
+<div class="col-md-3">
+  <div class="sidebar-widget">
+    <h4 class="sidebar-title">Tags</h4>
+    <div class="tagcloud">
 
-    <!-- Show all tags here -->
-    <% @tags.each do |tag| %>
-      <%= link_to tag.name %>
-      <!-- Edit/Delete admin only -->
-      <% if current_user.try(:admin?) %>
-        <%= link_to edit_tag_path(tag), class: "btn btn-default btn-xs" do %>
-          <i class="glyphicon glyphicon-pencil"></i>
-        <% end %>
-
-        <%= link_to tag, class: "btn btn-danger btn-xs", method: :delete, data: { confirm: "You sure?" } do %>
-          <i class="glyphicon glyphicon-trash"></i>
-        <% end %>
+      <!-- Show all tags here -->
+      <% @tags.each do |tag| %>
+        <%= link_to tag.name %>        
       <% end %>
-    <% end %>
 
+    </div>
   </div>
 </div>
