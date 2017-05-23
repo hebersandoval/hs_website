@@ -8,8 +8,12 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     if @comment.save
       flash[:notice] = "Successfully created comment!"
+      respond_to do |format|
+        format.html { redirect_to @comment.post }
+        format.json { render json: @comment }
+      end
       # redirect_to post_comments_path(@comment)
-      redirect_to @comment.post
+      # redirect_to @comment.post
     else
       redirect_to :back, alert: "Your comment was not saved!"
     end
