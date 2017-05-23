@@ -1,6 +1,8 @@
 // Get all post on index page
 $(() => {
   bindClickHandlers();
+  getNextProject();
+  getPreviousProject();
 });
 
 const bindClickHandlers = () => {
@@ -25,6 +27,44 @@ const getProjects = () => {
         $("#projects-container").append(projectHtml);
       });
     });
+}
+
+// Get the next project on the show page
+const getNextProject = () => {
+  $(".js-next-proj").on("click", function(e) {
+    e.preventDefault();
+    var nextId = parseInt($(".js-next-proj").attr("data-id")) + 1;
+    console.log(nextId)
+    history.pushState(null, null, "" + nextId)
+    $.get("/projects/" + nextId + ".json", function(data) {
+      // get project
+      var project = data;
+      $(".project-title").text(project["title"]);
+      $(".project-description").text(project["description"]);
+      $(".project-created").text(project["created_at"]);
+      // re-set the id to current on the link
+      $(".js-next-proj").attr("data-id", project["id"]);
+    });
+  });
+}
+
+// Get the previous project on the show page
+const getPreviousProject = () => {
+  $(".js-prev-proj").on("click", function(e) {
+    e.preventDefault();
+    var prevId = parseInt($(".js-next-proj").attr("data-id")) - 1;
+    console.log(prevId)
+    history.pushState(null, null, "" + prevId)
+    $.get("/projects/" + prevId + ".json", function(data) {
+      // get project
+      var project = data;
+      $(".project-title").text(project["title"]);
+      $(".project-description").text(project["description"]);
+      $(".project-created").text(project["created_at"]);
+      // re-set the id to current on the link
+      $(".js-next-proj").attr("data-id", project["id"]);
+    });
+  });
 }
 
 // Constructor function

@@ -47,7 +47,7 @@
         									</div>
         								</div>
         							</div>
-        							<h4 class="post-title"><a href=""><%= @project.title %></a></h4>
+        							<h4 class="project-title"><a href=""><%= @project.title %></a></h4>
         							<div class="post-meta text-uppercase">
 
 												<!-- Edit and delete buttons -->
@@ -61,7 +61,7 @@
 													<% end %>
 												<% end %>
 
-        								<span><%= @project.created_at.strftime("%B %d, %Y") %></span>
+        								<span class="project-created"><%= @project.created_at.strftime("%B %d, %Y") %></span>
 
                         <!-- Post categories -->
         								<% @project.tags.each do |tag| %>
@@ -71,7 +71,7 @@
         								<span>By <a href="">Admin</a></span>
 
         							</div>
-        							<div class="post-article">
+        							<div class="project-description">
         								<%= @project.description %>
         							</div>
         						</article>
@@ -80,11 +80,11 @@
 
                   <hr>
         					<ul class="pager">
-        						<li class="previous"><%= link_to raw("&larr; Prev"), "", class: "js-prev", "data-id": @project.id %></li>
+        						<li class="previous"><%= link_to raw("&larr; Prev"), "", class: "js-prev-proj", "data-id": @project.id %></li>
 
         						<li><%= link_to "Back", projects_path %></li>
 
-        						<li class="next"><%= link_to raw("Next &rarr;"), "", class: "js-next", "data-id": @project.id %></li>
+        						<li class="next"><%= link_to raw("Next &rarr;"), "", class: "js-next-proj", "data-id": @project.id %></li>
         					</ul>
 
                 </div>

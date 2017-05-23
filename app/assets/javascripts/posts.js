@@ -1,11 +1,11 @@
 // Get the next post on the show page
 $(function() {
   $(".js-next").on("click", function(e) {
+    e.preventDefault();
     var nextId = parseInt($(".js-next").attr("data-id")) + 1;
     history.pushState(null, null, "" + nextId)
     $.get("/posts/" + nextId + ".json", function(data) {
       // get post
-      console.log(data)
       var post = data;
       $(".post-title").text(post["title"]);
       $(".post-article").text(post["content"]);
@@ -13,13 +13,13 @@ $(function() {
       // re-set the id to current on the link
       $(".js-next").attr("data-id", post["id"]);
     });
-    e.preventDefault();
   });
 });
 
 // Get the previous post on the show page
 $(function() {
   $(".js-prev").on("click", function(e) {
+    e.preventDefault();
     var prevId = parseInt($(".js-next").attr("data-id")) - 1;
     history.pushState(null, null, "" + prevId)
     $.get("/posts/" + prevId + ".json", function(data) {
@@ -31,7 +31,6 @@ $(function() {
       // re-set the id to current on the link
       $(".js-next").attr("data-id", post["id"]);
     });
-    e.preventDefault();
   });
 });
 
@@ -45,14 +44,3 @@ $(function() {
     });
   });
 });
-
-// Pagination
-// $(function() {
-//   $(document.body).off('click', 'pagination a');
-//   $(document.body).on('click', 'pagination a', function(e) {
-//     e.preventDefault();
-//     var loadingHTML = "<div class='loading'>Loading...</div>";
-//     $("#blog_pagination").html(loadingHTML).load($(this).attr("href"));
-//     return false;
-//   });
-// });
