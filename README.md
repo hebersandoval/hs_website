@@ -29,7 +29,7 @@ To exit the rails server, in your console type: control + C
 
 ## Author
 
-Héber Sandoval - https://github.com/hebersandoval/hs_website
+[Héber Sandoval](https://github.com/hebersandoval/hs_website)
 
 ## License
 
