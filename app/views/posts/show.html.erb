@@ -72,19 +72,9 @@
 									<%= f.text_area :content, class: "form-control", rows: "4", placeholder: "Enter your comment here..." %> <br>
 									<%= f.submit class: "form-control" %>
 								<% end %>
-							<!-- Display all comments -->
-							<% @post.comments.each do |comment| %>
-								<div class="media">
-									<div class="media-left">
-										<%= image_tag("https://unsplash.it/50", size: "60x60") %>
-									</div>
-									<div class="media-body">
-										<h4 class="intro-text"><%= comment.user.name %></h4>
-										<p class="postContent"><%= comment.content %></p>
-									</div>
-								</div>
-								<hr>
-								<% end %>
+
+								<!-- Display all comments from partial -->
+								<%= render 'comments/comment' %>
 
 								<!-- AJAX comments will be inserted here -->
 								<div class="comment"><br>
